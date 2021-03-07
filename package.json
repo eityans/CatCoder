@@ -10,6 +10,9 @@
     "yarn": "^1.22.10"
   },
   "version": "0.1.0",
+  "engines": {
+    "yarn": "1.x"
+  },
   "description": "practice competitive programing for cats",
   "main": "babel.config.js",
   "directories": {
