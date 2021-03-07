@@ -1,6 +1,6 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do
   allow do
-    origins /localhost\:\d+/
+    origins /localhost\:\d+/, 'https://catcoder.herokuapp.com/api'
 
     resource '*',
       headers: :any,
