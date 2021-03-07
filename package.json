@@ -20,7 +20,7 @@
   "scripts": {
     "setup": "yarn",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "cd front && yarn install && yarn run build && cd ..",
+    "build": "cd front && yarn upgrade && yarn install && yarn run build && cd ..",
     "deploy": "cp -a front/build/. public/",
     "heroku-postbuild": "yarn run build && yarn run deploy && echo 'Client built!'"
   },
