@@ -19,7 +19,9 @@
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "webpack-dev-server": "^3.11.2"
+  },
   "scripts": {
     "setup": "yarn",
     "test": "echo \"Error: no test specified\" && exit 1",
