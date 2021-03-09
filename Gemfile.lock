@@ -87,6 +87,8 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.1-x64-mingw32)
       racc (~> 1.4)
+    nokogiri (1.11.1-x86_64-darwin)
+      racc (~> 1.4)
     nokogiri (1.11.1-x86_64-linux)
       racc (~> 1.4)
     pg (1.2.3)
@@ -145,6 +147,7 @@ GEM
 
 PLATFORMS
   x64-mingw32
+  x86_64-darwin-19
   x86_64-linux
 
 DEPENDENCIES
@@ -161,4 +164,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.2.13
+   2.2.14
