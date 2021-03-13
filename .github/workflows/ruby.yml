@@ -39,7 +39,12 @@ jobs:
           ${{ runner.os }}-gem-
     - name: bundle install
       run: bundle install --path vendor/bundle
+    # Database setup
 
+    - name: Database setup
+      run: |
+        bundle exec rake db:create RAILS_ENV=test
+        bundle exec rake db:schema:load RAILS_ENV=test
     - name: Test with Rspec
       run: bundle exec rspec
         
