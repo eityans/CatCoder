@@ -42,8 +42,8 @@ jobs:
 
     # Database setup
     - name: Database setup
-      run: bundle exec db:prepare RAILS_ENV=test
-      
+      run: bundle exec rails db:prepare RAILS_ENV=test
+
     - name: Test with Rspec
       run: bundle exec rspec
         
