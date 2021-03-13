@@ -41,10 +41,8 @@ jobs:
       run: bundle install --path vendor/bundle
 
     # Database setup
-    - run:
-      name: ci setup
-      command: |
-        RAILS_ENV=test bundle exec rails db:setup
+    - name: ci setup
+      run: RAILS_ENV=test bundle exec rails db:create
 
     - name: Test with Rspec
       run: bundle exec rspec
