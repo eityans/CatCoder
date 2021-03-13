@@ -18,6 +18,11 @@ jobs:
     name: Run spec
 
     runs-on: ubuntu-latest
+    
+        
+    strategy:
+      matrix:
+        ruby: [ '2.7.x' ]
 
     steps:
     - uses: actions/checkout@v2
@@ -27,12 +32,25 @@ jobs:
     # uses: ruby/setup-ruby@v1
       uses: ruby/setup-ruby@473e4d8fe5dd94ee328fdfca9f8c9c7afc9dae5e
       with:
-        ruby-version: 2.7.2
+        ruby-version : ${{ matrix.ruby }}
+        
+    - name: apt-get
+      run: sudo apt-get update
+    - name: Set up bundler
+      run: gem install bundler
+
+    - name: Cache gems
+      uses: actions/cache@preview
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gem-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gem-
+    - name: bundle install
+      run: bundle install --path vendor/bundle
+
     - name: Test with Rspec
-      run: |
-        gem install bundler
-        bundle install
-        bundle exec rspec
+      run: bundle exec rspec
         
         bundler-cache: true # runs 'bundle install' and caches installed gems automatically
     - name: Run tests
